@@ -1,0 +1,30 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing up</title>
+    <link rel="stylesheet" href="{% static 'tareas_project/css/estilos1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <ul>
+
+            <li id="tarea1">Tasks</li>
+            <li>//</li>
+            <li>Proyects</li>
+        </ul>
+    </header>
+    <section>
+        <form action="/validar_registro/" method="post">
+            {% csrf_token %}
+        <input type="text" name="username" id="" placeholder="username">
+        <input type="password" name="password" id="" placeholder="password">
+        <input type="submit" value="Sing up">
+        </form>
+       
+    </section>
+</body>
+</html>

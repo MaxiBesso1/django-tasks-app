@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tareas_project/css/estilos1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <title>Edit Task</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li id="tarea1">Tasks</li>
+            <li>//</li>
+            <li>Proyects</li>
+        </ul>
+    </header>
+    <div class="conteiner-edit">
+    <div class="conteniner-form1">
+        <form action="/save/edit/{{task.id}}" method="GET">
+            <input type="text" placeholder="Name:" class="input" name="task-name" value="{{task.nombre}}">
+            <textarea name="task-description" id="description" cols="30" rows="8" placeholder="Description:">{{task.descripcion}}</textarea>
+            <input list="priority" name="task-priority" id="select-priority" placeholder="Priority:" value="{{task.prioridad}}">
+            <datalist id="priority">
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+            </datalist>
+            <button type="submit" class="edit-buttom">Save Edit</button>
+        </form>
+    </div>
+
+</body>
+</html>

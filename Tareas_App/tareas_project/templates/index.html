@@ -1,0 +1,52 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Aplication</title>
+    <link rel="stylesheet" href="{% static 'tareas_project/css/estilos1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <ul>
+
+            <li id="tarea1">Tasks</li>
+            <li>//</li>
+            <li>Proyects</li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="conteiner-task">
+                    {%for task in tasks %}
+                <div class="task">
+                        <p id="task-name">{{task.nombre}}</p>
+                        <div class="description-div">
+                            <p id="task-description">{{task.descripcion}}</p>
+                        </div>
+                        <p id="task-priority">{{task.prioridad}}</p>
+                        <div id="buttoms-all"><a href="/delete/{{task.id}}" id="delete-buttom">DELETE</a> <a id="edit-buttom" href="/editar/{{task.id}}">EDIT</a></div>
+                    </div>
+                {%endfor%}
+ 
+        </div>
+        <div class="conteniner-form">
+            <form action="/Subir/" method="GET">
+                <input type="text" placeholder="Name:" class="input" id="input1" name="task-name" autofocus autocomplete="off">
+                <textarea name="task-description" id="description" cols="30" rows="8" placeholder="Description:" autocomplete="off"></textarea>
+                <input list="priority" name="task-priority" id="select-priority" placeholder="Priority:" autocomplete="off">
+                <datalist id="priority">
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baja">Baja</option>
+                </datalist>
+                <button type="submit" class="submit-buttom">Add Task</button>
+                
+            </form>
+        </div>
+    </div>
+    
+</body>
+<script href="{% static 'tareas_project/js/main.js' %}"></script>
+</html>
